@@ -402,8 +402,10 @@
 -analyzer:"C:/Program Files/Unity/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"C:/Program Files/Unity/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 -analyzer:"C:/Program Files/Unity/Editor/Data/Tools/Unity.SourceGenerators/Unity.UIToolkit.SourceGenerator.dll"
-"Assets/Camera.cs"
-"Assets/navesigma.cs"
+"Assets/scripts/Camera.cs"
+"Assets/scripts/Enemigos.cs"
+"Assets/scripts/navesigma.cs"
+"Assets/scripts/ScriptSpawnerEnemigos.cs"
 -langversion:9.0
 /deterministic
 /optimize+
