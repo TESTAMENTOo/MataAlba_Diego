@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Enemigos : MonoBehaviour
 {
-    float velocidadenemigo = 6;
+    float velocidadenemigo = 10;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -14,4 +14,13 @@ public class Enemigos : MonoBehaviour
     {
         transform.Translate(Vector3.back * Time.deltaTime * velocidadenemigo);
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+     Destroy(gameObject);   
+    }
+
+
+
 }
+

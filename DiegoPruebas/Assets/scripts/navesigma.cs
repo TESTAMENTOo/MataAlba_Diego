@@ -7,7 +7,7 @@ public class navesigma : MonoBehaviour
     int lifes;
     float shield;
     bool alive;
-    bool powerup;
+   
 
     [SerializeField] float speed;
 
@@ -17,7 +17,6 @@ public class navesigma : MonoBehaviour
         lifes = 3;
         shield = 100;
         alive = true;
-        powerup = false;
         speed = 15;
         
     }
