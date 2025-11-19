@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class Enemigos : MonoBehaviour
 {
-    float velocidadenemigo = 10;
+    float velocidadenemigo = 30f;
+
+    float destroyLimit = -6;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -13,12 +15,27 @@ public class Enemigos : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector3.back * Time.deltaTime * velocidadenemigo);
+        AutoDestruir();
     }
 
     void OnTriggerEnter(Collider other)
     {
-     Destroy(gameObject);   
+        if(other.gameObject.tag == "Player")
+        {
+            Destroy(gameObject);   
+
+        }
     }
+
+    void AutoDestruir()
+    {
+        if(transform.position.z < destroyLimit)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+
 
 
 

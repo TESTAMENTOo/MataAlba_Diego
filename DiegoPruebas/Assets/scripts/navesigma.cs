@@ -73,8 +73,15 @@ public class navesigma : MonoBehaviour
 
         
         }
+        void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject.tag == "Enemigo")
+            {
+                Destroy(gameObject);
 
- }  }
+            }
+        }
+    }  }
 
     
 

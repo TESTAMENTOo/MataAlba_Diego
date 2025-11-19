@@ -1,4 +1,4 @@
-using System.Threading;
+using System.Collections;
 using UnityEngine;
 
 public class ScriptSpawnerEnemigos : MonoBehaviour
@@ -11,42 +11,50 @@ public class ScriptSpawnerEnemigos : MonoBehaviour
     float timer1;
     float timer2;
 
+    //Intervalo de spawneo
+    float intervalo;
+    float distanciaEntreEnemigos = 2.5f;
+    float speed = 30f;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        timer1 = 0;
-        timer2 = 0;
+        StartCoroutine("SpawnRate");
     }
 
     // Update is called once per frame
     void Update()
     { 
-       randomizadorX = UnityEngine.Random.Range(-10f,10f); 
-       randomizadorY = UnityEngine.Random.Range(-5,5f);
-       spawner = new Vector3(randomizadorX,randomizadorY,45f);
-
-       timer1 += Time.deltaTime;
-       timer2 += Time.deltaTime;
-       
-       if(timer1 >= 2f)
-       {
-        spawnear1();
-        timer1 = 0f;
-       }
        
 
-       if(timer2 >= 3f)
-       {
-        spawnear1();
-        timer2 = 0f;
-       }
        
 
     }
-       void spawnear1()
-       {
-        Instantiate(enemigo,spawner,Quaternion.identity);
-       }
+
+    IEnumerator SpawnRate()
+    {
+        while (true)
+        {
+            RandomPosition();
+            spawnear1();
+            //Calculo el intervalo
+            intervalo = distanciaEntreEnemigos / speed;
+            yield return new WaitForSeconds(intervalo);
+        }
+    }
+
+    void RandomPosition()
+    {
+        randomizadorX = Random.Range(-10f, 10f);
+        randomizadorY = Random.Range(-5, 5f);
+        spawner = new Vector3(randomizadorX, randomizadorY, 45f);
+    }
+    
+
+    void spawnear1()
+    {
+    Instantiate(enemigo,spawner,Quaternion.identity);
+    }
 }  
 
        
